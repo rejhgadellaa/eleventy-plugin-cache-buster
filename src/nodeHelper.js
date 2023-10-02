@@ -34,6 +34,10 @@ module.exports = function (options, node) {
             return node && isRelativeUrl(this.getSource()) ;
         },
 
+        noCacheBust () {
+          return node && getNodeAttribute(node, 'data-no-cachebust') ? true : false;
+        },
+
         getStart () {
             return getObjectProperty(node, 'sourceCodeLocation.startOffset');
         },

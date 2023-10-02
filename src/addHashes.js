@@ -16,7 +16,7 @@ const defaultOptions = {
     hashParameter: 'v',
     sourceAttributes: {
         link: 'href',
-        script: 'src'
+        script: 'src',
     },
     createResourceHash
 };
@@ -42,7 +42,7 @@ module.exports = function (outputDir, options = defaultOptions) {
 
         const resourceNodes = findResourceNodes(document)
             .map((node) => nodeHelper({ sourceAttributes }, node))
-            .filter((node) => node.hasValidSource());
+            .filter((node) => node.hasValidSource() && !node.noCacheBust());
 
         const replacements = resourceNodes.map(function (nodeHelper) {
             const source = nodeHelper.getSource();
