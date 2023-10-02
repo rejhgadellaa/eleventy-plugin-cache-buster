@@ -35,7 +35,7 @@ module.exports = function (options, node) {
         },
 
         noCacheBust () {
-          return node && getNodeAttribute(node, 'data-no-cachebust') ? true : false;
+          return node && getNodeAttribute(node, 'data-no-cache-bust') ? true : false;
         },
 
         getStart () {
